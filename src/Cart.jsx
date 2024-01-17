@@ -1,10 +1,21 @@
-import Header from "./Header"
+import { ShopContext } from "./App";
+import { useContext } from "react";
 
 const Cart = () => {
+
+    const { cartItems } = useContext(ShopContext)
+
     return (
         <>
-        <Header />
-        <div>Cart</div>
+            <div>Cart</div>
+            {cartItems.map((item) => {
+                return (
+                    <>
+                    <div>{item.getName()}</div>
+                    <div>{item.getQuantity()}</div>
+                    </>
+                )
+            })}
         </>
     )
 }
